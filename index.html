@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="css/style.css" />
+<!--
+  * Please see the included README.md file for license terms and conditions.
+  -->
+<head>
+    <title>Blank Standard HTML5 Web App Template</title>
+    <ul>        
+        <li><button onclick="popup()">Add</button></li>
+        <li><button onclick="login()">Log in</button></li>
+    </ul>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+    <!-- see http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+    <style>
+        /* following two viewport lines are equivalent to meta viewport statement above, needed for Windows */
+        /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html and http://dev.w3.org/csswg/css-device-adapt/ */
+        @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }  @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }           @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+    </style>
+
+    <!-- Uncomment "phantom" cordova.js script if you convert your "Standard HTML5" project into a "Cordova" project. -->
+    <!-- <script src="cordova.js"></script> -->          <!-- phantom library, needed for Cordova api calls, added during build -->
+    <script src="js/app.js"></script>           <!-- recommended location of your JavaScript code relative to other JS files -->
+    <script src="xdk/init-dev.js"></script>     <!-- normalizes device and document ready events, see README for details -->
+</head>
+    
+    
+    <body>
+        
+        <div id="loginform" style="display:none">
+            <div>
+            <form>
+                <!-- Log in form -->
+                <h2>Log In</h2>
+                <hr>
+                <input id="username" placeholder="Username" type="text"><br>
+                <input id="logpass" placeholder="Password" type="password">
+                <button id="loginbutton" type="button" onclick="loginUser()">Log In</button>
+            </form>
+            </div>
+        </div>
+    <div id="form" style="display:none">
+        <div id="popupform">
+    <form>
+        <!-- Adding a new device form -->
+        <h2>New Device</h2>
+        <hr>
+        <input id="name" name="name" placeholder="Name" type="text"><br>
+        <input id="fpass" name="pass" placeholder="Enter Password" type="password"><br>
+        <input id="conpass" name="pass2" placeholder="Confirm Password" type="password">
+        <select>
+            <option value="door">Door</option>
+        </select>
+        <button id="create_new_device" type="button" onclick="connect()">Create</button>
+        </form>
+        </div>
+    </div>
+    <div id="myDiv"></div>        
+        <div id="device" style="display:none">
+        <button id="lock" type="button" onclick="lock()">Lock</button>
+        <button id="unlock" type="button" onclick="unlock()">Unlock</button>
+            <!-- Set time button NOT IMPLEMENTED -->
+        <button id="timer" type="button" onclick="password()">Set Lock Time</button>
+            <div id="passform" style="display:none">
+                <form>
+                    <input id="settime" type="text" pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" placeholder="HH:MM">
+                    <button id="button_pass" type="button" onclick="setTime()">Submit</button>
+                </form>
+                <div id="response"></div>
+            </div>
+   
+        </div>
+</body>
+</html>
